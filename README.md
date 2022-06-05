@@ -77,7 +77,7 @@ colnames(fulltab)<-c("gene","molecule","perc_ident","start","end","strand")
 intertab<-fulltab %>% filter(molecule %in% corescaffs)
 ```
 
-Now we have a table of scaffolds that at least have an MHC hit as well as a BRD2 or SLC39 hit. The single-copy gene [BRD2](https://www.ncbi.nlm.nih.gov/nuccore/NC_054767.1?report=genbank&from=688950&to=738157) in particular is a good anchor gene. SLC39 and RXRB are also good anchor genes, even if [SLC39](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3602797/) and [RXRB](https://www.ncbi.nlm.nih.gov/nuccore/?term=RXRB%20Zebra%20Finch) are multigene families. Exon 4 of RXRB is an excellent probe for the passerine MHC class II region.
+Now we have a table of scaffolds that at least have an MHC hit as well as a BRD2 or SLC39 hit. The single-copy gene [BRD2](https://www.ncbi.nlm.nih.gov/nuccore/NC_054767.1?report=genbank&from=688950&to=738157) in particular is a good anchor gene. SLC39 and RXRB are also good anchor genes, even if [SLC39](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3602797/) and [RXRB](https://www.ncbi.nlm.nih.gov/nuccore/?term=RXRB%20Zebra%20Finch) are small multigene families. Exon 4 of RXRB is another low-copy conserved probe to delimit the passerine MHC class II region.
 
 ## Putting contigs/scaffolds in a common orientation
 I find it helpful now to determine the orientation of genes on each scaffold, since we want to display them all in the same orientation. I do this by making a table of hits ordered by position in scaffold, and then asking if the BRD2 is at the beginning or end of the scaffold. I want to identify scaffolds with BRD2 at the end, so I can reverse them.
