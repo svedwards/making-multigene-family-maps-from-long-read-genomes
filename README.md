@@ -2,11 +2,8 @@
 These scripts can help you get from a set of long-read contigs and blast hits to a nice figure of your multigene family
 
 ---
-# Making quick maps of multigene families using blast, genome assemblies and
-  gggenes
-output:
-  html_document: default
-  pdf_document: default
+# Making quick maps of multigene families using blast, genome assemblies and gggenes
+
 ---
 
 ```{r setup, include=FALSE}
