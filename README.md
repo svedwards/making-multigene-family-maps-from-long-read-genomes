@@ -39,7 +39,7 @@ You will want to set your output format when you blast so that it generates a ta
 blastn -db scrubjay_26_haps -query Mhc_U23958.1_exon3.fa -out sj_mhc2_exon3_blast.out -task megablast -outfmt "6 qseqid sseqid pident sstart send sstrand"
 ```
 
-Your output should be a 6 column table of blast hits and target sequence ids. You may want to add additional columns but we will mainly use qseqid, sseqid, sstart and send. Let's retrieve that file, as well as other files we might use as anchors in our map, and look at them:
+Your output should be a 6 column table of blast hits and target sequence ids. You may want to add additional columns but we will mainly use qseqid, sseqid, sstart and send. Let's retrieve that file, as well as other gene blast tables we might use as anchors in our map, and look at them:
 
 # Preparing the blast outputs in R
 ```{r}
