@@ -66,7 +66,7 @@ slc39[,1]<-"SLC39A7"
 
 # Subsetting the scaffolds
 
-Now let's fine out which scaffolds have all three of the genes we are interested in, join the tables together and re-name the tables. The second column (V2) of each table has the scaffold hits:
+Now let's find out which scaffolds have all three of the genes we are interested in, join the tables together and re-name the tables. The second column (V2) of each table has the scaffold hits:
 
 ```{r}
 corescaffs<-intersect(mhc3$V2,union(brd2$V2,slc39$V2))
