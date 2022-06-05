@@ -116,6 +116,8 @@ We can inspect the order of genes on individual scaffolds now. For example:
 reversetab2 %>% filter(molecule == "MCZ_orn_366494.hap1.h1tg000827l") %>% arrange(start)
 ```
 
+Some of the genes have negative positions, but that's ok. The fact that BRD2 has the lowest position (most negative) assures me that it will be on the left of the map when I plot it.
+
 ## Making small genes on large contigs a bit easier to see
 Now we need to find out which direction each gene is in so that we can add a bit more length to it in the appropriate orientation so that we can see individual genes better. This example involves contigs that are about 400 kb in length; by adding 3kb to the beginning and end of each gene we can see it better but we must remember that our diagram is now not strictly to scale.
 
