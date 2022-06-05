@@ -77,10 +77,10 @@ colnames(fulltab)<-c("gene","molecule","perc_ident","start","end","strand")
 intertab<-fulltab %>% filter(molecule %in% corescaffs)
 ```
 
-Now we have a table of scaffolds that at least have an MHC hit as well as a BRD2 or SLC39 hit. The single-copy gene [BRD2](https://www.ncbi.nlm.nih.gov/nuccore/NC_054767.1?report=genbank&from=688950&to=738157) in particular is a good anchor gene. SLC39 and RXRB are also good anchor genes, even if [SLC39](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3602797/) and [RXRB](https://www.ncbi.nlm.nih.gov/nuccore/?term=RXRB%20Zebra%20Finch) are small multigene families. Exon 4 of RXRB is another low-copy conserved probe to delimit the passerine MHC class II region.
+Now we have a table of scaffolds that at least have an MHC hit as well as a BRD2 or SLC39 hit. There are a total of 26 unique contigs/scaffolds in this table. The single-copy gene [BRD2](https://www.ncbi.nlm.nih.gov/nuccore/NC_054767.1?report=genbank&from=688950&to=738157) in particular is a good anchor gene. SLC39 and RXRB are also good anchor genes, even if [SLC39](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3602797/) and [RXRB](https://www.ncbi.nlm.nih.gov/nuccore/?term=RXRB%20Zebra%20Finch) are small multigene families. Exon 4 of RXRB is a good low-copy conserved probe to delimit the passerine MHC class II region.
 
 ## Putting contigs/scaffolds in a common orientation
-I find it helpful now to determine the orientation of genes on each scaffold, since we want to display them all in the same orientation. I do this by making a table of hits ordered by position in scaffold, and then asking if the BRD2 is at the beginning or end of the scaffold. I want to identify scaffolds with BRD2 at the end, so I can reverse them.
+I find it helpful now to determine the orientation of genes on each scaffold, since we want to display them all in the same orientation. I do this by making a table of hits ordered by position in scaffold, and then asking if the BRD2 is at the beginning or end of the scaffold (beginning or end is arbitrary). I want to identify scaffolds with BRD2 at the end, so I can reverse them, because I want BRD2 to be on the left end of each of my maps.
 
 ```{r}
 scaffs<-unique(intertab$molecule)
@@ -90,7 +90,7 @@ for(i in 1:length(scaffs)){
 }
 ```
 
-By inspecting the file scaff_arrange_tab.txt I found that 15 scaffolds needed reversing. I put the names of these scaffolds in a list called strands.
+By inspecting the file scaff_arrange_tab.txt I found that 15 of the 26 scaffolds needed reversing. I put the names of these scaffolds in a list called strands.
 
 ```{r}
 strands<-c("MCZ_Orn_366498.hap2.h2tg000086l","MCZ_Orn_366498.hap1.h1tg000659l","MCZ_Orn_366487.hap2.h2tg000648l",
@@ -128,7 +128,7 @@ reversetab5<-bind_rows(reversetab3,reversetab4)
 
 ## Anchoring your scaffolds on a gene and common scale
 
-Now let's decide to anchor our diagram on the BRD2 gene. We do this by constructing a dummy alignment using functions in gggenes and the columns indicating our expanded gene hit sizes. When we do this, we then need to focus only on those scaffolds that actually have the BRD2 gene. This will lower our scaffold number from 26 to 15.
+Now let's decide to anchor our diagram on the BRD2 gene. We do this by constructing a dummy alignment using functions in gggenes and the columns indicating our expanded gene hit sizes. When we do this, we then need to focus only on those scaffolds that actually have the BRD2 gene. This will lower our scaffold number from 26 to 19.
 
 ```{r}
 dummies <- make_alignment_dummies(
