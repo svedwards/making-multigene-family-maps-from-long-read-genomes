@@ -32,7 +32,7 @@ MCZ_orn_366490.hap1.fa_ren MCZ_orn_366490.hap2.fa_ren MCZ_orn_366493.hap1.fa_ren
 
 # Getting your blast output together
 
-Now by blasting to this library (called "scrubjay_9_haps") you can blast to all the individual libraries simultaneously.
+Now by blasting to this library (called "scrubjay_9_haps") you can blast to all the individual genome databases simultaneously.
 You will want to set your output format when you blast so that it generates a table that is easily manipulated. I did this by using the -outfmt "6" command, further specifying the precise columns to generate using the codes available [here](https://www.metagenomics.wiki/tools/blast/blastn-output-format-6). So the commmand to generate a table for mhc class II exon 3 [using part of this scrub jay sequence as a probe](https://www.ncbi.nlm.nih.gov/nuccore/U23958.1) might look like this:
 
 ```
