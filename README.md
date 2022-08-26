@@ -157,7 +157,7 @@ Finally, let's compile all the scaffolds that have the BRD2 gene and then plot j
 ```{r}
 brd2scaffs<-(reversetab5 %>% filter(gene == "BRD2"))$molecule
 ```
-It will work better to make your R studio plot window large before running this chunk. If you get an error like "Error in grid.Call..." it probably means your R studio window is too small. Better to pass the plot to a variable and then use ggsave with a large output to save it. You can vary the thickness of the gene maps, the colors of the genes, and many other aspects using parameters in this scipt.
+It will work better to make your R studio plot window large before running this chunk. If you get an error like "Error in grid.Call..." it probably means your R studio window is too small. Better to pass the plot to a variable and then use ggsave with a large output to save it. You can vary the thickness of the gene maps, the colors of the genes, and many other aspects using parameters in this scipt. Look what a [nice figure](https://github.com/svedwards/making-multigene-family-maps-from-long-read-genomes/blob/main/Mhc_classII_gene_plot.pdf) you've made!
 
 ```{r, include=FALSE,eval=FALSE}
 reversetab5 %>% filter(molecule %in% brd2scaffs) %>% ggplot(aes(xmin = negstart03, xmax = negend03, y = molecule, fill = gene, label = gene)) + 
